@@ -1,9 +1,9 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class AI {
 
     public static int getBestMove() {
-        ArrayList<int[]> moves = new ArrayList<int[]>();
+        LinkedList<int[]> moves = new LinkedList<int[]>();
 
 
         for (int hole = 0; hole < Board.board.size(); hole++) {
@@ -36,10 +36,7 @@ public class AI {
     }
 
     public static int aiMove(int index) {
-        ArrayList<Integer> aiBoard = new ArrayList<Integer>();
-        for (int x = 0; x < Board.board.size(); x++) {
-            aiBoard.add(Board.board.get(x));
-        }
+        LinkedList<Integer> aiBoard = (LinkedList<Integer>) Board.board.clone();
 
         int tempIndex = index; // index for every time hand picks up new seeds
         int hand = aiBoard.get(tempIndex);
